@@ -1,9 +1,13 @@
 extends Node # instancia a classe Node2D
 
+#Muda o modo de jogo entre a tela de gameover e a gameplay
 var status = 1
+#Muda a pontuação do player
 var vscore = 0
-var x = 4
-var y = 1.5
+#Muda a velocidade do cenario e das colunas, dando a impressão que o dragão se movimenta mais rapido
+var x = 1.5
+#Muda a velocidade que o Dragão é puxado pra baixo
+var y = 6
 
 # executa essa função ao carregar o jogo
 func _ready():
@@ -41,11 +45,11 @@ func _process(delta):
 			
 		# se apertou seta para baixo, aumenta o valor de y (posição vertical) do dragão
 		if Input.is_action_pressed("ui_down"):
-			$dragon.position.y += 2
+			$dragon.position.y += 7
 
 		# se apertou seta para cima, diminui o valor de y (posição vertical) do dragão
 		if Input.is_action_pressed("ui_up"):
-			$dragon.position.y -= 4
+			$dragon.position.y -= 15
 			
 	elif status == 0: # parado
 		
