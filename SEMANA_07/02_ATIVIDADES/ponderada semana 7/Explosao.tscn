@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Particles.emitting = true
+
+
+#func _process(delta):
+	if $Particles.emitting == false:
+		queue_free()
+"
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.374194, 0.845161, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 42.57
+scale = 14.0
+scale_random = 1.0
+color_ramp = SubResource( 3 )
+
+[node name="Explosao" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Particles" type="Particles2D" parent="."]
+material = SubResource( 5 )
+position = Vector2( 540, 247 )
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 4 )

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://8d82b5_Jurassic_Park_Theme_Song.mp3" type="AudioStream" id=1]
+[ext_resource path="res://MusicControler.gd" type="Script" id=2]
+
+[node name="MusicControler" type="Node2D"]
+scale = Vector2( 17.4, 1 )
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
